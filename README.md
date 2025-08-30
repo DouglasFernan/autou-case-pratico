@@ -42,45 +42,54 @@ Este projeto é uma solução completa para o Case Prático de Desenvolvimento d
 
 ### Passos para a Instalação
 
-1.  **Clone o repositório:**
+1. **Clone o repositório:**
 
-    ```bash
-    git clone https://github.com/DouglasFernan/autou-case-pratico.git
-    cd autou-case-pratico
-    ```
+   ```bash
+   git clone https://github.com/DouglasFernan/autou-case-pratico.git
+   cd autou-case-pratico
+   ```
 
-2.  **Configure o Backend:**
+2. **Configure o Backend:**
 
-    ```bash
-    cd backend
-    python -m venv venv
-    source venv/bin/activate  # No Windows: venv\Scripts\activate
-    pip install -r requirements.txt
+   ```bash
+   cd backend
+   python -m venv venv
+   source venv/bin/activate  # No Windows: venv\Scripts\activate
+   pip install -r requirements.txt
+   ```
 
-    # Crie o arquivo .env na pasta 'backend/' e adicione sua chave:
-    # GOOGLE_API_KEY="SUA_CHAVE_SECRETA_DO_GEMINI_AQUI"
-    ```
+   Crie o arquivo `.env` na pasta `backend/` e adicione sua chave:
 
-    > 💡 **Observação:** Em alguns ambientes locais, o carregamento do arquivo `.env` pode ser instável. Caso enfrente um erro de credenciais, uma alternativa para teste é inserir a chave de API diretamente no código (`gemini_service.py`), lembrando de **NÃO** enviar esta alteração para o GitHub. A versão em produção no Render utiliza as variáveis de ambiente de forma segura.
+   ```env
+   GOOGLE_API_KEY="SUA_CHAVE_SECRETA_DO_GEMINI_AQUI"
+   ```
 
-3.  **Configure o Frontend:**
+   > 💡 **Observação:** Em alguns ambientes locais, o carregamento do arquivo `.env` pode ser instável. Caso enfrente um erro de credenciais, uma alternativa para teste é inserir a chave de API diretamente no código (`gemini_service.py`), lembrando de **NÃO** enviar esta alteração para o GitHub.  
+   > A versão em produção no Render utiliza as variáveis de ambiente de forma segura.
 
-    ```bash
-    cd ../frontend
-    npm install
-    ```
+3. **Configure o Frontend:**
 
-4.  **Execute a Aplicação (2 terminais):**
+   ```bash
+   cd ../frontend
+   npm install
+   ```
 
-        - Terminal 1 (na pasta `backend/`):
-          ```bash
-          uvicorn app.main:app --reload
-          ```
-        - Terminal 2 (na pasta `frontend/`):
-          `bash
+4. **Execute a Aplicação (em 2 terminais separados):**
 
-    npm run dev
-    `      Acesse o frontend em`http://localhost:3000`.
+   - **Terminal 1 (backend):**
+
+     ```bash
+     cd backend
+     uvicorn app.main:app --reload
+     ```
+
+   - **Terminal 2 (frontend):**
+     ```bash
+     cd frontend
+     npm run dev
+     ```
+
+   Acesse o frontend em: [http://localhost:3000](http://localhost:3000)
 
 ---
 
@@ -93,9 +102,7 @@ Para facilitar os testes, uma variedade de arquivos de exemplo (`.txt` e `.pdf`)
 ## 💡 Decisões Técnicas e Arquitetura
 
 - **Uso de LLM vs. NLP Clássico:** Optei por utilizar um Large Language Model (Gemini) em vez de técnicas de NLP tradicionais. Esta foi uma escolha técnica deliberada, pois LLMs entendem o contexto completo do texto, e o pré-processamento manual prejudicaria a precisão da análise.
-
 - **Engenharia de Prompt:** O "treinamento" e "ajuste" da IA foram realizados via engenharia de prompt, utilizando a técnica de "few-shot learning", fornecendo ao modelo exemplos claros para garantir alta precisão.
-
 - **Arquitetura Desacoplada:** A escolha de separar Frontend (Next.js) e Backend (FastAPI) cria uma solução mais escalável e manutenível.
 
 ---
@@ -113,5 +120,5 @@ Esta aplicação serve como uma robusta Prova de Conceito (PoC). Para evoluir pa
 ## 👤 Autor
 
 - **Nome:** Douglas Fernandes Soares Bessa
-- **LinkedIn:** [https://www.linkedin.com/in/dougfernan/](https://www.linkedin.com/in/dougfernan/)
-- **GitHub:** [https://github.com/DouglasFernan](https://github.com/DouglasFernan)
+- **LinkedIn:** https://www.linkedin.com/in/dougfernan/
+- **GitHub:** https://github.com/DouglasFernan
