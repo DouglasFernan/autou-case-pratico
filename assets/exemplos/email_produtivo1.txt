@@ -1,0 +1,11 @@
+Olá, equipe de Suporte,
+
+Desde as 10h da manhã de hoje, 28/08, não consigo acessar o módulo de faturamento do sistema. A página exibe um erro "Gateway Timeout 504".
+
+Já tentei limpar o cache do navegador e acessar de outra rede, mas o problema persiste.
+
+Poderiam verificar, por favor? Temos um alto volume de notas para emitir hoje e estamos parados por conta disso.
+
+Obrigado,
+João da Silva
+Financeiro
