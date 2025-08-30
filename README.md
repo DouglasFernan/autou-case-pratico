@@ -122,3 +122,11 @@ Esta aplicação serve como uma robusta Prova de Conceito (PoC). Para evoluir pa
 - **Nome:** Douglas Fernandes Soares Bessa
 - **LinkedIn:** https://www.linkedin.com/in/dougfernan/
 - **GitHub:** https://github.com/DouglasFernan
+
+---
+
+## ⚠️ Limitação da Hospedagem
+
+> **Observação:** Como o backend está hospedado no Render (plano gratuito), a aplicação pode apresentar uma **lentidão na primeira requisição** após um período de inatividade.  
+> Isso acontece porque o servidor "hiberna" quando não está em uso e precisa ser reiniciado ao receber uma nova requisição.  
+> Após esse aquecimento inicial, as respostas voltam a ser rápidas e estáveis.
