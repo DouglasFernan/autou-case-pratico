@@ -22,6 +22,7 @@ app = FastAPI(
 # Configuração do CORS para permitir a comunicação com o frontend
 origins = [
     "http://localhost:3000",
+    "https://autou-frontend.vercel.app",
 ]
 
 app.add_middleware(

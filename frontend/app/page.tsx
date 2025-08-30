@@ -34,7 +34,7 @@ export default function Home() {
     try {
       // CORREÇÃO: URL corrigida de 1227.0.0.1 para 127.0.0.1
       const response = await axios.post<AnalysisResult>(
-        "http://127.0.0.1:8000/process-email",
+        "https://autou-backend.onrender.com/process-email",
         formData,
         {
           headers: {
