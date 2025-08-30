@@ -65,8 +65,9 @@ export default function ResultDisplay({
 
   const isProductive = result.classificacao === "PRODUTIVO";
 
-  const isTextSubmission =
-    submittedEmail && !submittedEmail.startsWith("Arquivo enviado:");
+  // Condição para desabilitar o botão de cópia
+  const isCopyDisabled =
+    result.sugestao_resposta === "Nenhuma ação necessária.";
 
   return (
     <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200 space-y-4">
@@ -97,9 +98,11 @@ export default function ResultDisplay({
           <h3 className="text-sm font-semibold text-gray-500 uppercase">
             Sugestão de Resposta
           </h3>
+          {/* BOTÃO DE COPIAR COM A LÓGICA DE DESABILITAR */}
           <button
             onClick={handleCopy}
-            className="flex items-center text-sm text-blue-600 hover:text-blue-800 transition-colors cursor-pointer"
+            disabled={isCopyDisabled}
+            className="flex items-center text-sm text-blue-600 hover:text-blue-800 transition-colors cursor-pointer disabled:text-gray-400 disabled:cursor-not-allowed disabled:hover:text-gray-400"
           >
             {copied ? (
               <>
@@ -117,27 +120,25 @@ export default function ResultDisplay({
         </p>
       </div>
 
-      {isTextSubmission && (
-        <div className="border-t border-gray-200 pt-4">
-          <button
-            onClick={() => setShowEmail(!showEmail)}
-            className="flex items-center text-sm font-medium text-gray-600 hover:text-black transition-colors cursor-pointer"
-          >
-            {showEmail ? (
-              <EyeOff className="w-4 h-4 mr-2" />
-            ) : (
-              <Eye className="w-4 h-4 mr-2" />
-            )}
-            {showEmail ? "Ocultar Email Enviado" : "Ver Email Enviado"}
-          </button>
-
-          {showEmail && submittedEmail && (
-            <div className="mt-3 p-4 bg-gray-50 border border-gray-200 rounded-md text-sm text-gray-700 whitespace-pre-wrap">
-              {submittedEmail}
-            </div>
+      <div className="border-t border-gray-200 pt-4">
+        <button
+          onClick={() => setShowEmail(!showEmail)}
+          className="flex items-center text-sm font-medium text-gray-600 hover:text-black transition-colors cursor-pointer"
+        >
+          {showEmail ? (
+            <EyeOff className="w-4 h-4 mr-2" />
+          ) : (
+            <Eye className="w-4 h-4 mr-2" />
           )}
-        </div>
-      )}
+          {showEmail ? "Ocultar Email Enviado" : "Ver Email Enviado"}
+        </button>
+
+        {showEmail && submittedEmail && (
+          <div className="mt-3 p-4 bg-gray-50 border border-gray-200 rounded-md text-sm text-gray-700 whitespace-pre-wrap">
+            {submittedEmail}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
